@@ -8,16 +8,17 @@ public class Test {
 
 	public static void main(String[] args) {
 
-		String user = "user";    // change according to your configuration
-		String pw = "password";        // change according to your configuration
-		String url = "jdbc:postgresql://localhost/friends?user=" + user + "&password=" + pw + "&ssl=false";
+		String user = "postgres";    // change according to your configuration
+		String pw = "pgAdminBatman10";        // change according to your configuration
+		String url = "jdbc:postgresql://localhost/freunde?user=" + user + "&password=" + pw + "&ssl=false";
 
 		try {
 
 			System.out.println("*** TASK 1 ***");
 
-			Connection conn = null;
+			Connection conn = DriverManager.getConnection(url);
 			// TODO: open the connection, output the message when it opened successfully
+			System.out.println("Successfully connected to database");
 
 			// Uncomment these calls when the functions are implemented
 			
