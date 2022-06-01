@@ -23,7 +23,7 @@ public class Test {
 			// Uncomment these calls when the functions are implemented
 			
 			Task2(conn);
-			// Task3(conn);
+			Task3(conn);
 			// Task4a(conn);
 			// Task4b(conn);
 			// Task5(conn);
@@ -50,7 +50,7 @@ public class Test {
 		System.out.println("In der Datenbank befinden sich " + rs.getString(1) + " Gruppen"); //print result
 		rs.close();
 		stmt.close();		//close statement in order to conserve memory
-		conn.close();		//close connection, cut data connection
+		//conn.close();		//close connection, cut data connection
 
 	}
 
@@ -61,11 +61,18 @@ public class Test {
 		ArrayList<Person> men = new ArrayList<>();
 
 		// TODO: get the data from the database for all men into the resultset, fill men arraylist from the resultset
-
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery("select vorname, nachname, email from person where geschlecht = 'M'");
 		for (Person man : men) {
+		//while (rs.next()) {
 			// TODO: output the data for man
+			String vorname = rs.getString("vorname");
+			String nachname = rs.getString("nachname");
+			String email = rs.getString("email");
+			System.out.println(vorname + " " + nachname + " " + email);
 		}
-
+		rs.close();
+		stmt.close();
 
 	}
 
