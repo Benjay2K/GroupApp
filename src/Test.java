@@ -47,7 +47,7 @@ public class Test {
 		Statement stmt = conn.createStatement();								//create statement for connection "conn"
 		ResultSet rs = stmt.executeQuery("select count(*) from gruppe" );	//declare statement execution, result is a ResultSet
 		rs.next();			//result tuple is reached
-		System.out.println("In der Datenbank befinden sich " + rs.getString(1) + " Personen"); //print result
+		System.out.println("In der Datenbank befinden sich " + rs.getString(1) + " Gruppen"); //print result
 		rs.close();
 		stmt.close();		//close statement in order to conserve memory
 		conn.close();		//close connection, cut data connection
