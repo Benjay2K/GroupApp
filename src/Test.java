@@ -22,7 +22,7 @@ public class Test {
 
 			// Uncomment these calls when the functions are implemented
 			
-			// Task2(conn);
+			Task2(conn);
 			// Task3(conn);
 			// Task4a(conn);
 			// Task4b(conn);
@@ -34,6 +34,7 @@ public class Test {
 
 		} catch (Exception e) {
 			// the connection was not opened or some other error occurred
+			System.out.println("Not connected to database");
 			e.printStackTrace();
 		}
 	}
@@ -43,6 +44,13 @@ public class Test {
 		System.out.println("*** TASK 2 ***");
 
 		// TODO: get the count of persons and output it to console
+		Statement stmt = conn.createStatement();								//create statement for connection "conn"
+		ResultSet rs = stmt.executeQuery("select count(*) from gruppe" );	//declare statement execution, result is a ResultSet
+		rs.next();			//result tuple is reached
+		System.out.println("In der Datenbank befinden sich " + rs.getString(1) + " Personen"); //print result
+		rs.close();
+		stmt.close();		//close statement in order to conserve memory
+		conn.close();		//close connection, cut data connection
 
 	}
 
